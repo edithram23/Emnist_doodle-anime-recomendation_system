@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+    <style>
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+            color: #4b0082;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(90deg, #7b0099, #a13da1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: background 0.5s ease-out;
+        }
+
+        h1:hover {
+            background: linear-gradient(90deg, #4b0082, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body {
+            background-color: #333;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .center > div {
+            margin: 0 20px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .center img {
+            display: block;
+            margin: auto;
+            width: 300px;
+            height: auto;
+        }
+
+        .center a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            color: #4b0082;
+            text-decoration: none;
+            border: 2px solid #4b0082;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: background 0.3s ease-out, color 0.3s ease-out;
+        }
+
+        .center a:hover {
+            background-color: #4b0082;
+            color: #fff;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>We have two models!</h1>
+    <div class="center">
+        <div>
+            <img src="./static/img/DALL·E 2023-04-01 21.24.15.png" alt="Doodle">
+            <a href="{{url_for('doodle')}}">Doodle</a>
+        </div>
+        <div>
+            <img src="./static/img/anime.jpeg" alt="Anime">
+            <a href="{{url_for('anime')}}">Anime</a>
+        </div>
+    </div>
+</body>
+</html>

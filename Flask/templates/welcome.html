@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emnist - Doodle</title>
+    <style>
+      /* Add styles for the headings */
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 50px;
+        color: #4b0082;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(90deg, #7b0099, #a13da1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: background 0.5s ease-out;
+      }
+
+      h1:hover {
+        background: linear-gradient(90deg, #4b0082, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      h2 {
+        font-size: 18px;
+        font-weight: normal;
+        text-align: center;
+        margin-top: 30px;
+        color: #C0C0C0; /* Set the color to white */
+        font-family: 'Montserrat', sans-serif;
+        }
+
+
+
+
+
+      /* Add styles for the link */
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #fff;
+        color: #7b0099;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 50px;
+        font-family: 'Montserrat', sans-serif;
+        transition: background-color 0.3s ease-out;
+      }
+
+      /* Change color of link when hovered */
+      a:hover {
+        background-color: #7b0099;
+        color: #fff;
+      }
+
+      /* Add styles for the body */
+      body {
+        background-color: #333;
+        color: #fff;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+    </style>
+    <!-- Add font links to head -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700|Poppins:700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Welcome to Emnist - Doodle</h1>
+    <h2>Draw, Predict, and Have Fun with Our Machine Learning Model</h2>
+    <h2>"Our model uses advanced techniques such as convolutional neural networks (CNNs) to accurately recognize hand-drawn images. Try it out and see how well it predicts your drawings!"</h2>
+    <a href="{{url_for('canvas')}}">Let's Get Started</a>
+  </body>
+</html>

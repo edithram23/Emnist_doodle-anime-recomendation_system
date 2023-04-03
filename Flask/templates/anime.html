@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         h1 {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 50px;
+        color: #4b0082;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(90deg, #7b0099, #a13da1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: background 0.5s ease-out;
+      }
+
+      h1:hover {
+        background: linear-gradient(90deg, #4b0082, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+        body {
+            background-color: #333;
+            background-image: url("https://cdn.pixabay.com/photo/2016/08/19/08/13/avatar-1606916_960_720.png");
+            background-size: cover;
+        }
+        
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #fff;
+            color: #7b0099;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #7b0099;
+            color: #fff;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            color: #333;
+            margin-top: 100px;
+        }
+        
+        img {
+            display: block;
+            margin: auto;
+            width: 300px;
+            height: auto;
+            margin-top: 50px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 2px 2px #000;
+            
+        }
+        .text-box {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .text {
+        font-size: 24px;
+        margin-top: 10px;
+        text-shadow: 1px 1px 2px rgba(5, 5, 5, 0.5);
+        color: #fff;
+        }
+
+    </style>
+ </head>
+<body>
+    <h1>Anime Search</h1>
+    <form action="{{url_for('data')}}" method="post">
+        <input type="text" name="name" placeholder="Search for an anime character" required autocomplete="off">
+        <input type="submit" value="Search">
+    </form>
+    <div class="text-box">
+        {% for i in anime %}
+              <div class = "text"> {{i}} </div>
+        {% endfor %}
+      </div>
+</body>
+</html>

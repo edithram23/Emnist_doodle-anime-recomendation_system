@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* background-color: #333; */
+      background-image: url('../static/img/imge1.jpeg');  
+      
+      background-size: cover;
+    }
+
+   .login-box {
+  background-color: rgba(221, 221, 221, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+    .signup-btn {
+      margin-top: 20px;
+      background-color: transparent;
+      border: none;
+      color: #141414;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: underline;
+      font-family: 'Montserrat', sans-serif;
+      transition: color 0.3s ease-out;
+    }
+
+    .signup-btn:hover {
+      color: #000000;
+    }
+
+    .signup-form {
+      display: none;
+      margin-top: 20px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], button {
+      border-radius: 5px;
+      border: none;
+      padding: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    button[type="submit"] {
+      display: inline-block;
+      padding: 10px;
+      background-color: #fff;
+      color: #000000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 50px;
+      font-family: 'Montserrat', sans-serif;
+      transition: background-color 0.3s ease-out;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2></h2>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form action="{{url_for('signin')}}" method="POST">
+      <input type="text" name="username" placeholder="Username" required autocomplete="off">
+      <input type="password" name="password" placeholder="Password" required autocomplete="off">
+      {{message}}
+      <button type="submit">Login</button>
+    </form>
+    <button class="signup-btn" onclick="document.querySelector('.signup-form').style.display = 'block';">Sign Up</button>
+    <form class="signup-form" action="{{url_for('signup')}}" method="POST">
+      <input type="text" name="username" placeholder="Username" required autocomplete="off">
+      <input type="email" name="email" placeholder="Email" required autocomplete="off" >
+      <input type="password" name="password" placeholder="Password" required autocomplete="off">
+      <button type="submit">Create Account</button>
+    </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

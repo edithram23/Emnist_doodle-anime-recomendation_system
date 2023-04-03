@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Add some CSS styles here */
+        body {
+        background-color: #333;
+        color: #fff;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      h1 {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  color: #4b0082;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(90deg, #7b0099, #a13da1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 0.5s ease-out;
+  position: relative;
+  animation: wave 2s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+h1:hover {
+  background: linear-gradient(90deg, #4b0082, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+h1:focus {
+  background: linear-gradient(90deg, #ffffff, #4b0082);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px #fff, 4px 4px #4b0082;
+}
+
+      form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        #paint-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        #paint {
+            border-radius: 15px;
+            box-shadow: 3px 7px 26px -3px rgba(0,0,0,0.26);
+            height: 280px;
+            width: 280px;
+            background: linear-gradient(45deg, #6c757d, #495057);
+        }
+        canvas {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.5);
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #6c757d;
+            color: #fff;
+            box-shadow: 2px 2px 6px -2px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #495057;
+            transform: translateY(-2px);
+            box-shadow: 2px 4px 6px -2px rgba(0,0,0,0.5);
+        }
+        input[type=submit] {
+            display: inline-block;
+        padding: 10px 20px;
+        background-color: #fff;
+        color: #7b0099;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 50px;
+        font-family: 'Montserrat', sans-serif;
+        transition: background-color 0.3s ease-out;
+
+        margin-top: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            
+           
+
+
+
+        }
+        input[type=submit]:hover {
+            background-color: #7b0099;
+            transform: translateY(-2px);
+            box-shadow: 2px 4px 6px -2px rgba(0,0,0,0.5);
+            background-color: #7b0099;
+            color: #fff;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 24px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px #000;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>EMNIST - Doodle</h1>
+        <div id="main">
+            <form action="{{url_for('canvas')}}" method="get">
+                <div id="paint">
+                    <canvas id="myCanvas"></canvas>
+                </div>
+                <div id="buttons">
+                    <button type="button" onclick="clearCanvas()">Clear</button>
+                    <button type="button" onclick="saveCanvas()">Upload</button>
+                </div>
+                <input type="submit" name="" value="Submit">
+            </form>
+            <h2>{{pred}}</h2>
+        </div>
+    </div>
+
+<script>
+
+    // geting canvas element and context
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+    var painting = document.getElementById("paint");
+    var paint_style = getComputedStyle(painting);
+    canvas.width = parseInt(paint_style.getPropertyValue("width"));
+    canvas.height = parseInt(paint_style.getPropertyValue("height")) ;
+    //default values for drawing
+    context.strokeStyle = "#000000";
+    context.lineWidth = 20;
+    context.lineCap = "round";
+    
+    //
+    context.strokeStyle = "#ffffff";
+    context.fillstyle = "#000000";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    // mouse variable and position
+    var mouse_x,mouse_y;
+    var isMouseDown = false;
+
+    //event listener
+    canvas.addEventListener("mousedown",function(e)
+    {
+        isMouseDown=true;
+        mouse_x = e.offsetX;
+        mouse_y = e.offsetY;
+    });
+
+    canvas.addEventListener("mouseup",function(e)
+    {
+        isMouseDown = false;
+    });
+
+    canvas.addEventListener("mousemove",function(e) 
+    {
+        if(isMouseDown)
+        {
+            var mouse_x2 = e.offsetX;
+            var mouse_y2 = e.offsetY;
+
+            // drawing line
+            context.beginPath();
+            context.moveTo(mouse_x,mouse_y);
+            context.lineTo(mouse_x2,mouse_y2);
+            context.stroke()
+
+            //updating
+            mouse_x=mouse_x2;
+            mouse_y=mouse_y2;
+        }
+    });
+
+    // Saving
+    // Saving
+    function saveCanvas()
+    {
+        var data_url = canvas.toDataURL();
+      //  request
+        fetch('/canvas',{method:'POST',headers: {'Content-Type': 'application/x-www-form-urlencoded'},body: 'imageBase64=' + encodeURIComponent(data_url)})
+        .then(response=>response.text())
+        .then(data => {
+            console.log(data);
+            })
+        .catch(error=>console.error(error))
+        
+  
+        
+    }
+
+    function clearCanvas()
+    {
+        context.clearRect(0,0,canvas.width,canvas.height);
+        context.strokeStyle = "#ffffff";
+        context.fillstyle = "#000000";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+    
+        
+    }
+    
+</script>
+</body>
+
+</html>
