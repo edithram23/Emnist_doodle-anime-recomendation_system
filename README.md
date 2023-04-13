@@ -1,4 +1,4 @@
-# Emnist-Doodle & Anime-Recommendation
+# Mnist-Doodle & Anime-Recommendation
 
 Experience the best of both worlds with our web page featuring an EMNIST handwriting recognition model and anime recommendation system. 
 ## Installation
@@ -37,11 +37,11 @@ flask run
 ![selection](https://user-images.githubusercontent.com/106003437/229406577-1ddd9c47-c1a0-4217-8ce7-1ea2833f3a3f.jpeg)
 
 
-### Emnist-Doodle Home Page
+### Mnist-Doodle Home Page
 
 ![emnist_home](https://user-images.githubusercontent.com/106003437/229406696-8c664482-b301-4fba-ae8a-6f296caed1f7.jpeg)
 
-### Emnist-Doodle : 
+### Mnist-Doodle : 
 
 ![N](https://user-images.githubusercontent.com/106003437/229407475-c3809c26-19fe-4763-b1c9-7a012f30fa08.jpeg)
 
