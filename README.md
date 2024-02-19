@@ -1,6 +1,6 @@
 # Mnist-Doodle & Anime-Recommendation
 
-Experience the best of both worlds with our web page featuring an EMNIST handwriting recognition model and anime recommendation system. 
+Experience the best of both worlds with our web page featuring an MNIST handwriting recognition model and anime recommendation system. 
 ## Installation
 
 To use this web application, you need to follow these steps:
@@ -18,9 +18,9 @@ flask run
 ## User Authentication
 * The web page has a login page that requires users to enter their username and password to access the features.
 ## Model Selection
-* After logging in, the user is presented with the option to select which model to use - EMNIST handwriting recognition or anime recommendation.
-## EMNIST Handwriting Recognition
-* The EMNIST handwriting recognition model uses a canvas where users can draw letters and the model will recognize them.
+* After logging in, the user is presented with the option to select which model to use - MNIST handwriting recognition or anime recommendation.
+## MNIST Handwriting Recognition
+* The MNIST handwriting recognition model uses a canvas where users can draw letters and the model will recognize them.
 * The recognized letters are displayed along with the model's confidence score.
 # Anime Recommendation
 * The anime recommendation model uses a collaborative filtering algorithm to suggest anime to the user based on their ratings and the ratings of other users.
